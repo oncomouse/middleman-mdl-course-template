@@ -87,23 +87,17 @@ page_link_name: Foobar
 ---
 ```
 
-You can also create sidebar widgets using the following YAML fragment as a template:
+Sidebar widgets can be added by placing the file name (without path or extension) of the sidebar widget partial (see "Adding Sidebar Widgets" below) in the `page_sidebar_widgets` key in the YAML frontmatter. The following fragment will add `instructor_info` and `course_meetings` to the sidebar:
 
-``` yaml
----
+~~~ yaml
 page_sidebar_widgets:
-- |
-  ### Markdown Formated Widget Content
-  
-  Hello, this is a widget
-- |
-  ### This is a 2nd Widget
-  
-  Boom
----
-```
+- instructor_info
+- course_meetings
+~~~
 
-Note that the Markdown formatted content of these widgets must be indented by two spaces (`  `) for Middleman to compile and load the page.
+### Adding Sidebar Widgets
+
+Sidebar widgets are defined in the `source/partials/sidebar_widgets` folder of this repository. They must begin with an underscore ("_") and can be in any file format supported by Middleman. A sidebar widget for Instructor Information (office hours, etc.) is provided for you.
 
 ## The Course Schedule (`data/schedule.yml`)
 
