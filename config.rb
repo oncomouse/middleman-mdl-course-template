@@ -18,6 +18,18 @@ compass_config do |config|
 		config.add_import_path File.join "#{app.root}", $bower_config["directory"]
 end
 
+# Figure out the course's file name to set deploy path
+$course_tag = File.basename Dir.pwd
+
+# Base path for all courses:
+config[:build_http_prefix] = "/courses/#{$course_tag}"
+
+# Proxy the course info YAML file:
+ready do
+	proxy "/#{$course_tag}.yml", "/course.yml"
+	ignore "/course.yml"
+end
+
 ###
 # Helpers
 ###
@@ -71,22 +83,17 @@ set :images_dir, 'images'
 ## Build-specific configuration
 configure :build do
 
-	# Don't edit these lines:
-	ignore 'bower_components/*'
-	ignore 'node_modules/*'
-	#ignore "javascripts/*"
 	ignore "stylesheets/*"
 	
 	activate :minify_html
 	activate :minify_css, inline: true
 	
-	# Change this to build with a different file root.
-	set :http_prefix, "/"
+	set :http_prefix, config[:build_http_prefix]
 end
 
 activate :deploy do |deploy|
 	deploy.deploy_method = :rsync
 	deploy.user = "you"
 	deploy.host = "you.your-server.com"
-	deploy.path = "~/www/wherever/whenever"
+	deploy.path = "~/#{config[:build_http_prefix]}"
 end
