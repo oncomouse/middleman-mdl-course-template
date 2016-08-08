@@ -1,0 +1,161 @@
+!!! 5
+-# paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+<!--[if lt IE 7]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7]>	  <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8]>	  <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>	  <html lang="en" class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+%html{ :lang => "en" }
+	<!--<![endif]-->
+	%head
+		%link{href: "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700", type: "text/css"}
+		= stylesheet_link_tag("https://fonts.googleapis.com/icon?family=Material+Icons", "https://code.getmdl.io/1.1.3/material.#{data.course.primary_color}-#{data.course.secondary_color}.min.css", :media => "all", :rel => "stylesheet")	
+		%meta{ :charset => "utf-8" }/
+		
+		-# Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		-# Remove this if you use the .htaccess
+		-# %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }/
+
+		%title
+			= data.course.number
+			- if current_resource.data['page_link_name'] && !(current_resource.source_file.include? "index.html")
+				= " - #{current_resource.data['page_link_name']}"
+
+		%meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }/
+		:scss
+			@import "mdl-utils/mdl-colors.scss";
+			$primary: "#{data.course.primary_color.gsub(/_/,"-")}"; // Define these in terms materialize likes
+			$secondary: "#{data.course.secondary_color.gsub(/_/,"-")}"; // Define these in terms materialize likes
+			
+			a {
+				color: color($secondary, "base");
+			}
+			
+			p, ol, ul {
+				font-size: 16px;
+				&, h6 {
+					line-height: 26px;
+				}
+			}
+			
+			.mdl-layout__header {
+				@if $primary == "purple" or $primary == "deep-purple" or $primary == "blue" or $primary == "deep-orange" or $primary == "teal" or $primary == "brown" or $primary == "indigo" {
+					background-color: color($primary, "darken-1");
+				} @else if $primary == "pink" or $primary == "green" or $primary == "cyan" or $primary == "light-blue" or $primary == "red" or $primary == "blue-grey" {
+					background-color: color($primary, "darken-2");
+				} @else if $primary == "grey" or $primary == "orange" or $primary == "lime" or $primary == "light-green" {
+					background-color: color($primary, "darken-3");
+					
+				} @else if $primary == "amber" or $primary == "yellow" {
+					background-color: color($primary, "darken-4");
+				} @else {
+					background-color: color($primary, "base");
+				}
+			}
+			body {
+				display: flex;
+			    min-height: 100vh;
+			    flex-direction: column;
+			}
+			main {
+				flex: 1 0 auto;
+			}
+			.page-content {
+				margin: auto;
+			}
+			header .mdl-navigation__link {
+				border-bottom: 3px solid transparent;
+				margin-bottom: 3px;
+				opacity: 0.75;
+				&:hover {
+					opacity: 1;
+				}
+				&.is-active {
+					border-bottom: 3px solid color($secondary, "accent-2");
+					opacity: 1;
+				}
+			}
+			.mdl-layout__drawer {
+				.mdl-navigation__link {
+					background-color: transparent;
+					&.is-active {
+						background-color: color($secondary, "lighten-3");
+						color: color("grey", "darken-4");
+						opacity: 1;
+						&:hover {
+							background-color: color($secondary, "lighten-2");
+						};
+					}
+				}
+			}
+			.mdl-layout__header--scroll {
+				position: fixed;
+			}
+			.has-scrolling-header .mdl-layout__content {
+				margin-top: 64px;
+			}
+			.course-title {
+				& small {
+					display: block;
+				}
+			}
+			.mdl-layout__drawer > .mdl-layout__title, .mdl-layout__drawer > .mdl-layout-title {
+				line-height: 30px;
+				margin-top: 20px;
+			}
+			.ie-only {
+				display: none;
+			}
+			html.ie6, html.ie7, html.ie8, html.ie9 {
+				display: block;
+			}
+		/ Try to polyfill for older versions of Internet Explorer:
+		<!--[if lte IE 9]>
+		= javascript_include_tag("//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js", "//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js", "//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.min.js", "//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js", "//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js")
+		<![endif]-->
+	%body{ :class => page_classes }
+		.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+			%header.mdl-layout__header.mdl-layout__header--scroll.mdl-shadow--3dp
+				.mdl-layout__header-row
+					%span.mdl-layout-title.course-title
+						= partial "partials/course-title"
+					.mdl-layout-spacer
+					%nav.mdl-navigation.mdl-layout--large-screen-only
+						= partial "partials/links"
+			.mdl-layout__drawer
+				%span.mdl-layout-title.course-title
+					= partial "partials/course-title"
+				%nav.mdl-navigation
+					= partial "partials/links"
+			%main.mdl-layout__content.mdl-grid
+				.page-content.mdl-cell.mdl-cell--10-col.mdl-cell--12-col-phone
+					.mdl-grid
+						- if current_page.data.page_sidebar_widgets
+							%aside.mdl-cell--4-col.mdl-cell--12-col-phone.mdl-cell--12-col-tablet
+								- current_page.data.page_sidebar_widgets.each do |sidebar_widget|
+									.mdl-card.mdl-shadow--2dp
+										.mdl-card__supporting-text
+											:markdown
+												#{sidebar_widget}
+						%article.mdl-cell--12-col-phone.mdl-cell--12-col-tablet{class: "mdl-cell--#{current_page.data.page_sidebar_widgets ? "8" : "10"}-col#{!current_page.data.page_sidebar_widgets ? " mdl-cell--1-offset-desktop" : ""}"}
+							.mdl-card.ie-only.mdl-shadow--2dp{style: "width: 100%; margin-bottom: 30px"}
+								.mdl-card__title
+									%h2.mdl-card__title-text.mdl-color-text--red
+										%i.material-icons warning
+										Outdated Browser Warning!
+								.mdl-card__supporting-text
+									= partial "partials/ie-only"
+							- if current_resource.path == "index.html"
+								.mdl-card{style: "width: 100%"}
+									.md-card__support-text
+										%h1.course-title= partial "partials/course-title"
+									.mdl-card__title
+										%h2.mdl-card__title-text Course Description
+									.mdl-card__supporting-text
+										= partial "partials/course-description"
+				
+							=yield
+			%footer.mdl-mini-footer
+				.mdl-mini-footer__right-section
+					= partial "partials/footer"
+		=javascript_include_tag("https://code.getmdl.io/1.1.3/material.min.js")

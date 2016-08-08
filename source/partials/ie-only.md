@@ -1,0 +1,3 @@
+You are using an outdated version of Internet Explorer to view this site. Your browser is no longer supported by Microsoft and is a major security threat to your computer. Additionally, this site will not function correctly in your browser.
+
+Please consider installing a more modern browser. Either upgrade [Internet Explorer](http://pcsupport.about.com/od/browsers/f/update-internet-explorer.htm), or consider installing [Google Chrome](https://www.google.com/chrome/) or [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/), which are all modern, updated web browsers.

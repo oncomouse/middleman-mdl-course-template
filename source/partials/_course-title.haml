@@ -1,0 +1,9 @@
+- course_title = data.course.has_key?(:title) ? data.course.title : "Course Title"
+- course_subtitle = data.course.has_key?(:subtitle) ? data.course.subtitle : nil
+- course_number = data.course.has_key?(:number) ? data.course.number : "ENG 123"
+- if course_title =~ / *\: */
+	- (course_title, course_subtitle) = course_title.split(/ *\: */)
+%small= course_number
+= course_title
+- if not course_subtitle.nil?
+	= course_subtitle

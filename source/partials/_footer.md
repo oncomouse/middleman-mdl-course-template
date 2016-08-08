@@ -1,0 +1,1 @@
+Course website made using [middleman-mdl-course-template](https://github.com/oncomouse/middleman-mdl-course-template) by [Andrew Pilsch](http://andrew.pilsch.com). Made with [Middleman](http://www.middlemanapp.com), [Chronic](https://github.com/mojombo/chronic), [HAML](http://haml.info/), [SASS](http://sass-lang.com/), and [MDL](http://getmdl.io).

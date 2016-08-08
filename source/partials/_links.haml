@@ -1,0 +1,9 @@
+- sitemap.resources.select{ |resource| resource.source_file =~ /(:?\.html)/ }.each do |page|
+	- next if page.data['hidden']
+	- link = "Page"
+	- if page.data['page_link_name']
+		- link = page.data['page_link_name']
+	- options = { class: "mdl-navigation__link #{link.gsub(/[^\w\s]/,"").gsub(/\s+/,"-").downcase}" }
+	- if page.source_file == current_page.source_file
+		- options[:class] += " is-active"
+	= link_to link, page.destination_path, options
