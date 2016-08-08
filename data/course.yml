@@ -5,3 +5,6 @@ description: |
   A Description of your awesome course!
 primary_color: indigo
 secondary_color: cyan
+instructor:
+  name: Your Name
+  email: your@email.com

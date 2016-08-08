@@ -1,14 +1,7 @@
 ---
 page_link_name: "Overview"
 page_sidebar_widgets:
-- |
-  **Instructor Info**
-  
-  *Name*: Your Name
-  
-  *Email*: you AT server DOT com
-  
-  *Office Hours*: 2-3 OFFICE 123
+- instructor-info
 ---
 ## Course Overview
 
