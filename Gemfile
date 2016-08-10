@@ -6,7 +6,6 @@ gem "kramdown"
 
 gem "middleman", "~> 4"
 gem "middleman-compass"
-gem "middleman-sprockets"
 gem 'middleman-deploy', github: 'middleman-contrib/middleman-deploy', branch: 'master'
 gem "middleman-minify-html"
 

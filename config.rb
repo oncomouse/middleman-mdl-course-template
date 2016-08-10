@@ -10,10 +10,7 @@ set :markdown, :fenced_code_blocks => true,
 
 set :haml, { :ugly => false, :format => :html5 }
 
-activate :sprockets
-
 $bower_config = File.exists?("#{app.root}/.bowerrc") ? JSON.parse(IO.read("#{app.root}/.bowerrc")) : {"directory" => "bower_components"}
-sprockets.append_path File.join "#{app.root}", $bower_config["directory"]
 compass_config do |config|
 		config.add_import_path File.join "#{app.root}", $bower_config["directory"]
 end
