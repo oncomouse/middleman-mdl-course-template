@@ -108,8 +108,11 @@
 			.mdl-layout__header--scroll {
 				position: fixed;
 			}
-			.has-scrolling-header .mdl-layout__content {
-				margin-top: 64px;
+			.mdl-layout__content {
+				width: 100%;
+				.has-scrolling-header & {
+					margin-top: 64px;
+				}
 			}
 			.course-title {
 				& small {
