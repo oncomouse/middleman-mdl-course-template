@@ -44,6 +44,10 @@
 			$primary: "#{data.course.primary_color.gsub(/_/,"-")}"; // Define these in terms materialize likes
 			$secondary: "#{data.course.secondary_color.gsub(/_/,"-")}"; // Define these in terms materialize likes
 			
+			html {
+				font-family: "Roboto", sans-serif;
+			}
+			
 			a {
 				color: color($secondary, "base");
 			}
@@ -122,6 +126,16 @@
 			.mdl-layout__drawer > .mdl-layout__title, .mdl-layout__drawer > .mdl-layout-title {
 				line-height: 30px;
 				margin-top: 20px;
+			}
+			.mdl-data-table {
+				font-size: 16px;
+				th {
+					font-size: 15px;
+				}
+			}
+			.mdl-data-table--wide {
+				width: 75%;
+				margin: auto;
 			}
 			.ie-only {
 				display: none;
