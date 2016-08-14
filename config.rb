@@ -27,6 +27,13 @@ ready do
 	ignore "/course.yml"
 end
 
+["red","pink","purple","deep_purple","indigo","blue","light_blue","cyan","teal","green","light_green","lime","yellow","amber","orange","deep_orange","brown","blue_grey","grey"].each do |primary_color|
+	["red","pink","purple","deep_purple","indigo","blue","light_blue","cyan","teal","green","light_green","lime","yellow","amber","orange","deep_orange"].each do |secondary_color|
+		next if primary_color == secondary_color
+		proxy "/stylesheets/app.#{primary_color}-#{secondary_color}.css", "/stylesheets/app.css", locals: {primary_color: primary_color, secondary_color: secondary_color}, ignore: true
+	end
+end
+
 ###
 # Helpers
 ###
