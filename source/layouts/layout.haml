@@ -90,6 +90,9 @@
 			.page-content {
 				margin: auto;
 			}
+			.page-content__sidebar-widget {
+				width: 95%;
+			}
 			header .mdl-navigation__link {
 				border-bottom: 3px solid transparent;
 				margin-bottom: 3px;
@@ -176,7 +179,7 @@
 						- if current_page.data.page_sidebar_widgets
 							%aside.mdl-cell--4-col.mdl-cell--12-col-phone.mdl-cell--12-col-tablet
 								- current_page.data.page_sidebar_widgets.each do |sidebar_widget_name|
-									.mdl-card.mdl-shadow--2dp
+									.mdl-card.mdl-shadow--2dp.page-content__sidebar-widget
 										.mdl-card__supporting-text
 											= partial "partials/sidebar_widgets/#{sidebar_widget_name}", locals: {data: data, current_page: current_page}
 						%article.mdl-cell--12-col-phone.mdl-cell--12-col-tablet{class: "mdl-cell--#{current_page.data.page_sidebar_widgets ? "8" : "10"}-col#{!current_page.data.page_sidebar_widgets ? " mdl-cell--1-offset-desktop" : ""}"}
