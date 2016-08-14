@@ -123,6 +123,7 @@
 			}
 			.mdl-layout__content {
 				width: 100%;
+				background-color: rgb(238, 238, 238);
 				.has-scrolling-header & {
 					margin-top: 64px;
 				}
@@ -155,6 +156,11 @@
 			html.ie6, html.ie7, html.ie8, html.ie9 {
 				display: block;
 			}
+			.page-content__main {
+				box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+				padding: 16px;
+				background: white;
+			}
 		/ Try to polyfill for older versions of Internet Explorer:
 		<!--[if lte IE 9]>
 		= javascript_include_tag("//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js", "//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js", "//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.min.js", "//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js", "//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js")
@@ -182,7 +188,7 @@
 									.mdl-card.mdl-shadow--2dp.page-content__sidebar-widget
 										.mdl-card__supporting-text
 											= partial "partials/sidebar_widgets/#{sidebar_widget_name}", locals: {data: data, current_page: current_page}
-						%article.mdl-cell--12-col-phone.mdl-cell--12-col-tablet{class: "mdl-cell--#{current_page.data.page_sidebar_widgets ? "8" : "10"}-col#{!current_page.data.page_sidebar_widgets ? " mdl-cell--1-offset-desktop" : ""}"}
+						%article.page-content__main.mdl-cell--12-col-phone.mdl-cell--12-col-tablet{class: "mdl-cell--#{current_page.data.page_sidebar_widgets ? "8" : "10"}-col#{!current_page.data.page_sidebar_widgets ? " mdl-cell--1-offset-desktop" : ""}"}
 							.mdl-card.ie-only.mdl-shadow--2dp{style: "width: 100%; margin-bottom: 30px"}
 								.mdl-card__title
 									%h2.mdl-card__title-text.mdl-color-text--red
