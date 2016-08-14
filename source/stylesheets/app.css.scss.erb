@@ -1,6 +1,6 @@
 @import "mdl-utils/mdl-colors.scss";
-$primary: "<%=(defined? primary_color ? primary_color : data.course.primary_color).gsub(/_/,"-")%>";
-$secondary: "<%=(defined? secondary_color ? secondary_color : data.course.secondary_color).gsub(/_/,"-")%>";
+$primary: "<%=(defined?(primary_color) ? primary_color : data.course.primary_color).gsub(/_/,"-")%>";
+$secondary: "<%=(defined?(secondary_color) ? secondary_color : data.course.secondary_color).gsub(/_/,"-")%>";
 
 html {
 	font-family: "Roboto", sans-serif;
