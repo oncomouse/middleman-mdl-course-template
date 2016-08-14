@@ -89,7 +89,7 @@ end
 				current_unit += 1
 			end %>
 <div class="mdl-grid">
-	<h<%=data['schedule'].has_key?('units') ? 3 : 2%> class="mdl-cell mdl-cell--12-col">Week <%= current_week%> <% if data['schedule'].has_key? 'weeks' and data['schedule']['weeks'].has_key? current_week then%><span class="title"><%= data['schedule']['weeks'][current_week]%></span><% end %></h<%=data['schedule'].has_key?('units') ? 3 : 2%>>
+	<h<%=data['schedule'].has_key?('units') ? 3 : 2%> class="mdl-cell mdl-cell--12-col schedule__week">Week <%= current_week%><% if data['schedule'].has_key? 'weeks' and data['schedule']['weeks'].has_key? current_week then%><small class="schedule__week-title"> <%= data['schedule']['weeks'][current_week]%></small><% end %></h<%=data['schedule'].has_key?('units') ? 3 : 2%>>
 		<%
 			current_week += 1
 		end 
