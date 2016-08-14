@@ -10,3 +10,6 @@ course_number: <%=data.course.number%>
 course_term: <%=data.course.term%>
 course_description: |+
     <%=data.course.description%>
+<% if data.course.has_key? "hidden" %>
+hidden: <%=data.course.hidden%>
+<% end %>
