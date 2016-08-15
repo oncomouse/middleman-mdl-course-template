@@ -90,7 +90,7 @@ configure :build do
 	ignore "stylesheets/*"
 	
 	activate :minify_html
-	activate :minify_css, inline: true
+	activate :minify_javascript, inline: true
 	
 	set :http_prefix, config[:build_http_prefix]
 end
