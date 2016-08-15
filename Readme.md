@@ -15,6 +15,18 @@ To install, run `bundle install` from a Terminal.
 
 To start the development server, run `middleman` and visit [http://localhost:4567](http://localhost:4567).
 
+### Fixing `config.rb`
+
+Before using this software, there is one line in `config.rb` you will need to change. Find the code below and follow the changes indicated in the comments:
+
+~~~ ruby
+### Change everything before #{config[:build_http_prefix]} to the location you will be deploying these courses.
+#   If your website is http://foobar.com/me and /courses is created in that directory,
+#   change http://your-server.com to http://foobar.com/me
+###
+config[:site_deploy_root] = "http://your-server.com#{config[:build_http_prefix]}"
+~~~
+
 ### Tips for Installing Ruby, Bower, & Bundler
 
 Starting from scratch with Middleman, you will need to install [Ruby](https://www.ruby-lang.org) (I *strongly* [recommend using RVM for this](http://rvm.io).) and [Git](http://git-scm.com/).
