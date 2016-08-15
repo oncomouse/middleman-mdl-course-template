@@ -10,16 +10,17 @@ set :markdown, :fenced_code_blocks => true,
 
 set :haml, { :ugly => false, :format => :html5 }
 
-$bower_config = File.exists?("#{app.root}/.bowerrc") ? JSON.parse(IO.read("#{app.root}/.bowerrc")) : {"directory" => "bower_components"}
-compass_config do |config|
-		config.add_import_path File.join "#{app.root}", $bower_config["directory"]
-end
-
 # Figure out the course's file name to set deploy path
 $course_tag = File.basename Dir.pwd
 
 # Base path for all courses:
 config[:build_http_prefix] = "/courses/#{$course_tag}"
+
+### Change everything before #{config[:build_http_prefix]} to the location you will be deploying these courses.
+#   If your website is http://foobar.com/me and /courses is created in that directory,
+#   change http://your-server.com to http://foobar.com/me
+###
+config[:site_deploy_root] = "http://your-server.com#{config[:build_http_prefix]}"
 
 # Proxy the course info YAML file:
 ready do
