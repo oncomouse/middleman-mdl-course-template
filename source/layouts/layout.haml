@@ -57,7 +57,7 @@
 				.page-content.mdl-cell.mdl-cell--10-col.mdl-cell--12-col-phone
 					.mdl-grid
 						- if current_page.data.page_sidebar_widgets
-							%aside.mdl-cell--4-col.mdl-cell--12-col-phone.mdl-cell--12-col-tablet
+							%aside.mdl-cell--4-col.mdl-cell--12-col-phone.mdl-cell--12-col-tablet.page-content__sidebar-widget-container
 								- current_page.data.page_sidebar_widgets.each do |sidebar_widget_name|
 									.mdl-card.mdl-shadow--2dp.page-content__sidebar-widget
 										.mdl-card__supporting-text
