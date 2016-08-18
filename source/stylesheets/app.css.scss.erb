@@ -20,15 +20,19 @@ p, ol, ul {
 .mdl-layout__header {
 	@if $primary == "purple" or $primary == "deep-purple" or $primary == "blue" or $primary == "deep-orange" or $primary == "teal" or $primary == "brown" or $primary == "indigo" {
 		background-color: color($primary, "darken-1");
-	} @else if $primary == "amber" or $primary == "pink" or $primary == "green" or $primary == "cyan" or $primary == "light-blue" or $primary == "red" or $primary == "blue-grey" {
+	} @else if $primary == "amber" or $primary == "pink" or $primary == "cyan" or $primary == "light-blue" or $primary == "red" or $primary == "blue-grey" {
 		background-color: color($primary, "darken-2");
-	} @else if $primary == "grey" or $primary == "orange" or $primary == "lime" or $primary == "light-green" {
+	} @else if $primary == "orange" or $primary == "lime" {
 		background-color: color($primary, "darken-3");
 		
-	} @else if $primary == "yellow" {
-		background-color: color($primary, "darken-4");
-	} @else {
+	} @else { // "green" "yellow"
 		background-color: color($primary, "base");
+	}
+	@if $primary == "pink" or $primary == "light-blue" or $primary == "cyan" or $primary == "orange" {
+		color: rgb(255,255,255);
+		& .mdl-layout__drawer-button, .mdl-navigation__link {
+			color: rgb(255,255,255);
+		}
 	}
 }
 body {
