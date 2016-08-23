@@ -1,0 +1,55 @@
+#PageTOC
+%script{src: "https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"}
+:scss
+	#PageTOC {
+		ul {
+			padding-left: 1rem;
+			& ul {
+				padding-left: 2rem;
+			}
+		}
+	}
+:javascript
+	Zepto(function($) {
+		String.prototype.hash = function() {
+			return this.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+		}
+		function append_header(list, header) {
+			list.append($('<li><a href="#' + header.attr('id') + '">' + header.text() + '</a></li>'))
+		}
+		
+		var TOC = $('#PageTOC');
+		var TOC__ul = $('<ul></ul>');
+		var article = $('.page-content__main');
+		var article__headers = article.find('h1,h2,h3,h4,h5,h6').filter(function() { return $(this).closest('.ie-only').length === 0;});
+		
+		var top_level = 2;
+		if (article__headers.first().prop('tagName') === 'H2') {
+			top_level = 3;
+		}
+		var current_list = TOC__ul;
+		var current_level = top_level;
+		TOC.append($('<strong>' + article__headers.first().text() + ' - Table of Contents</strong>'));
+		TOC.append(TOC__ul);
+		article__headers.each(function(i, header) {
+			header = $(header);
+			var header_level = parseInt(header.prop('tagName').replace(/h/i,''));
+			if(header_level >= top_level) {
+				if(header.attr('id') === undefined) {
+					header.attr('id', header.text().hash());
+				}
+				if(header_level > current_level) {
+					var new_list = $('<ul></ul>');
+					current_list.append(new_list);
+					current_list = new_list;	
+				} else if(header_level < current_level) {
+					current_list = current_list.parent();
+				}
+				append_header(current_list, header);
+				current_level = header_level;
+			}
+		});
+	});
+		
+	
+	
