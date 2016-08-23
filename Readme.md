@@ -27,7 +27,7 @@ Before using this software, there is one line in `config.rb` you will need to ch
 config[:site_deploy_root] = "http://your-server.com#{config[:build_http_prefix]}"
 ~~~
 
-### Tips for Installing Ruby, Bower, & Bundler
+### Tips for Installing Ruby & Bundler
 
 Starting from scratch with Middleman, you will need to install [Ruby](https://www.ruby-lang.org) (I *strongly* [recommend using RVM for this](http://rvm.io).) and [Git](http://git-scm.com/).
 
@@ -35,19 +35,11 @@ Once you have Ruby, run `gem install bundler`, from a Terminal, to install the p
 
 ## Editing The Course
 
-Changing the `course.yml` file controls the default displays of the course. The <abbv>HAML</abbv> files that begin with course in `source/partial` (`_course-description.haml` and `_course-title.haml`) can be edited for more control.
+Changing the `data/course.yml` file controls the default displays of the course. The <abbv>HAML</abbv> files that begin with course in `source/partial` (`_course-description.haml` and `_course-title.haml`) can be edited for more control.
 
-The course schedule of assignments, readings, etc. is built by editing the `schedule.yml`.
+The course schedule of assignments, readings, etc. is built by editing the `data/schedule.yml`.
 
-As a rule, you should not need to edit `source/partials/_links.haml`, `source/course.yml.erb`, and `schedule.html.erb`.
-
-### Changing Syllabus Appearance
-
-To change the color scheme of the syllabus (something you should do for each class!), you will need to edit `source/stylesheets/_variables.scss`. This file contains a series of overrides and custom variables, but the most important variable in this file is `$course_color`. Changing this variable overrides the default background color for your course and changes links, borders, and the overall appearance of the syllabus. 
-
-I've included the SASS-Colors library, which contains a host of named variables for colors to use in SASS. You can see a full list of the colors (along with samples) [here](https://dl.dropboxusercontent.com/u/28696035/samples.html).
-
-For some of the colors, you may need to change the percentages passed to `lighten()` and `darken()`, so experiment to get the color you want.
+As a rule, you should not need to edit `source/partials/_links.haml`, `source/course.yml.erb`, and `source/schedule.html.erb`.
 
 ### Customizing MDL Colors
 
@@ -99,7 +91,7 @@ page_link_name: Foobar
 ---
 ```
 
-Sidebar widgets can be added by placing the file name (without path or extension) of the sidebar widget partial (see "Adding Sidebar Widgets" below) in the `page_sidebar_widgets` key in the YAML frontmatter. The following fragment will add `instructor_info` and `course_meetings` to the sidebar:
+Sidebar widgets can be added by placing the file name (without path, extension or leading "`_`") of the sidebar widget partial (see "Adding Sidebar Widgets" below) in the `page_sidebar_widgets` key in the YAML frontmatter. The following fragment will add `instructor_info` and `course_meetings` to the sidebar:
 
 ~~~ yaml
 page_sidebar_widgets:
@@ -109,7 +101,7 @@ page_sidebar_widgets:
 
 ### Adding Sidebar Widgets
 
-Sidebar widgets are defined in the `source/partials/sidebar_widgets` folder of this repository. They must begin with an underscore ("_") and can be in any file format supported by Middleman. A sidebar widget for Instructor Information (office hours, etc.) is provided for you.
+Sidebar widgets are defined in the `source/partials/sidebar_widgets` folder of this repository. They must begin with an underscore ("_") and can be in any file format supported by Middleman. Sidebar widgets for Instructor Information (office hours, etc.) and Table of Contents are provided for you.
 
 ## The Course Schedule (`data/schedule.yml`)
 
