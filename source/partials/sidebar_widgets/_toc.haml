@@ -21,7 +21,7 @@
 		var TOC = $('#PageTOC');
 		var TOC__ul = $('<ul></ul>');
 		var article = $('.page-content__main');
-		var article__headers = article.find('h1,h2,h3,h4,h5,h6').filter(function() { return $(this).closest('.ie-only').length === 0;});
+		var article__headers = article.find('h1,h2,h3,h4,h5,h6').filter(function() { return $(this).closest('.ie-only').length === 0;}); // Return headers that aren't in the IE only warning card.
 		
 		var top_level = 2;
 		if (article__headers.first().prop('tagName') === 'H2') {
@@ -29,6 +29,7 @@
 		}
 		var current_list = TOC__ul;
 		var current_level = top_level;
+		TOC.closest('.mdl-card').addClass('mdl-layout--large-screen-only'); // Had on mobile and tablets
 		TOC.append($('<strong>' + article__headers.first().text() + ' - Table of Contents</strong>'));
 		TOC.append(TOC__ul);
 		article__headers.each(function(i, header) {
