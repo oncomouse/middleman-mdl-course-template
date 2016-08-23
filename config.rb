@@ -92,6 +92,7 @@ configure :build do
 	
 	activate :minify_html
 	activate :minify_javascript, inline: true
+	activate :minify_css, inline: true
 	
 	set :http_prefix, config[:build_http_prefix]
 end
