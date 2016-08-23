@@ -2,6 +2,8 @@
 
 This template allows the creation of simple, responsive course websites for college-level courses. It uses YAML to create the schedule of instruction and [Middleman's vast array of supported languages](https://middlemanapp.com/basics/templating_language/) for page content. It uses bits of [Material Design Lite](http://getmdl.io/) for responsive navigation and some layout. It also is heavily customizable to create unique, course-specific layouts.
 
+This template's main advantage over my previous one (see [middleman-course-template](https://github.com/oncomouse/middleman-course-template)) is that all stylesheet and javascript content is loaded from a CDN (Content Delivery Network). This greatly speeds up site building in middleman and produces smaller, more manageable course sites.
+
 ## Setup
 
 ### Dependencies
