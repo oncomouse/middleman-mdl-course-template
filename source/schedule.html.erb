@@ -31,7 +31,6 @@ def generateScheduleData(schedule)
 					today = Chronic.parse("next #{meeting}", :now => today).to_date
 					throw :done
 				elsif today.strftime('%w').to_i == Chronic.parse(meeting).to_date.strftime('%w').to_i 
-					#puts "#{current_meeting}, #{schedule['meets'].length}"
 					#current_meeting += 1
 					throw :done
 				else
@@ -91,7 +90,6 @@ end
 	
 	data_structure.keys.sort.each do |today|
 		today = Chronic.parse(today)
-		puts today
 		# Open a new week if we're at the start of the week:
 		if current_meeting == 0
 			if data['schedule'].has_key?('units') and data['schedule']['units'].index{ |a| a['start'] == current_week }%>
@@ -110,7 +108,7 @@ end
 			current_week += 1
 		end 
 		# Create a new day and print the date:
-		puts "#{current_meeting}, #{today.strftime("%A").downcase}"%>
+		%>
 	<div class="mdl-cell mdl-cell--<%=(12 / data['schedule']['meets'].length)%>-col <%=(current_meeting == 0 && !sorted_meetings.index(today.strftime("%A").downcase).nil? && current_meeting < sorted_meetings.index(today.strftime("%A").downcase)) ? " mdl-cell--#{(12 / data['schedule']['meets'].length) * (sorted_meetings.index(today.strftime("%A").downcase) - current_meeting)}-offset" : ""%>">
 		<p><strong><%=today.strftime('%a %m/%d')%></strong></p>
 		<%
@@ -137,7 +135,7 @@ end
 		
 		# If we're at the end of the week, close the .week div and reset to next week:
 		if sorted_meetings.index(today.strftime("%A").downcase) == (data['schedule']['meets'].length - 1)
-			puts "#{today}"%>
+			%>
 </div>
 		<%
 			current_meeting = 0
