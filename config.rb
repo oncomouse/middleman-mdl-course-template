@@ -25,7 +25,7 @@ config[:site_deploy_root] = "http://your-server.com#{config[:build_http_prefix]}
 # Proxy the course info YAML file:
 ready do
 	proxy "/#{$course_tag}.yml", "/course.yml" if "/#{$course_tag}.yml" != "/course.yml"
-	ignore "/course.yml"
+	ignore "/course.yml" if "/#{$course_tag}.yml" != "/course.yml"
 end
 
 ["red","pink","purple","deep_purple","indigo","blue","light_blue","cyan","teal","green","light_green","lime","yellow","amber","orange","deep_orange","brown","blue_grey","grey"].each do |primary_color|
