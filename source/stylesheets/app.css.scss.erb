@@ -1,20 +1,21 @@
 @import "mdl-utils/mdl-colors.scss";
+@import "compass/utilities/color/contrast";
 $primary: "<%=(defined?(primary_color) ? primary_color : data.course.primary_color).gsub(/_/,"-")%>";
 $secondary: "<%=(defined?(secondary_color) ? secondary_color : data.course.secondary_color).gsub(/_/,"-")%>";
-
-html {
+$linkColor: contrast-color(#fff, color($secondary, "darken-2"), color($secondary, "base"));
+html,body {
 	font-family: "Roboto", sans-serif;
 }
 
 a {
-	color: color($secondary, "base");
+	color: $linkColor;
 }
 
 p, ol, ul {
 	font-size: 16px;
-}
-p, ol, ul, h6 {
-	line-height: 26px;
+	&, h6 {
+		line-height: 26px;
+	}
 }
 
 .mdl-layout__header {
@@ -56,6 +57,10 @@ footer, main {
 		}
 	}
 }
+.mdl-mini-footer {
+	background: contrast-color($linkColor, color("grey", "darken-2"), color("grey", "base"));
+	color: contrast-color(contrast-color($linkColor, color("grey", "darken-2"), color("grey", "base")), color("grey", "lighten-2"), color("grey", "base"));
+}
 .page-content {
 	margin: auto;
 }
@@ -65,7 +70,6 @@ footer, main {
 .page-content__sidebar-widget {
 	width: 95%;
 	margin: auto;
-	margin-bottom: 1rem;
 }
 .page-content__main {
 	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
@@ -89,7 +93,6 @@ footer, main {
 	}
 }
 .mdl-layout__drawer {
-	position: fixed;
 	.mdl-navigation__link {
 		background-color: transparent;
 		&.is-active {
@@ -138,11 +141,4 @@ footer, main {
 }
 html.ie6, html.ie7, html.ie8, html.ie9 {
 	display: block;
-}
-
-blockquote {
-	&:before, &:after {
-		content: "";
-		display: none
-	}
 }
