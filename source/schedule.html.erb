@@ -92,11 +92,11 @@ end
 		today = Chronic.parse(today)
 		# Open a new week if we're at the start of the week:
 		if current_meeting == 0
-			if data['schedule'].has_key?('units') and data['schedule']['units'].index{ |a| a['starts'] == current_week }%>
+			if data['schedule'].has_key?('units') and data['schedule']['units'].index{ |a| a['start'] == current_week }%>
 				<div class="week">
-					<h2>Unit <%=current_unit%>: <%=data['schedule']['units'][data['schedule']['units'].index{ |a| a['starts'] == current_week }]['title'] %></h2>
-					<% if data['schedule']['units'][data['schedule']['units'].index{ |a| a['starts'] == current_week }].has_key? 'description' %>
-					<%= Tilt['markdown'].new(config[:markdown]) { data['schedule']['units'][data['schedule']['units'].index{ |a| a['starts'] == current_week }]['description'] }.render(app) %>
+					<h2>Unit <%=current_unit%>: <%=data['schedule']['units'][data['schedule']['units'].index{ |a| a['start'] == current_week }]['title'] %></h2>
+					<% if data['schedule']['units'][data['schedule']['units'].index{ |a| a['start'] == current_week }].has_key? 'description' %>
+					<%= Tilt['markdown'].new(config[:markdown]) { data['schedule']['units'][data['schedule']['units'].index{ |a| a['start'] == current_week }]['description'] }.render(app) %>
 					<%end%>
 				</div>
 			<% 
