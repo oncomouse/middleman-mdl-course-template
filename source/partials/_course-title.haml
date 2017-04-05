@@ -4,6 +4,6 @@
 - if course_title =~ / *\: */
 	- (course_title, course_subtitle) = course_title.split(/ *\: */)
 %small= course_number
-= course_title
+%span.title= course_title
 - if not course_subtitle.nil?
-	= course_subtitle
+	%span.subtitle= course_subtitle
