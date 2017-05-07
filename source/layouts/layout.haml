@@ -34,7 +34,7 @@
 				= " - #{current_resource.data['page_link_name']}"
 
 		%meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }/
-		= stylesheet_link_tag("http://fonts.googleapis.com/css?family=Roboto:300,400,500,700", "https://fonts.googleapis.com/icon?family=Material+Icons", "https://code.getmdl.io/1.1.3/material.#{data.course.primary_color}-#{data.course.secondary_color}.min.css", (build? ? "http://oncomouse.github.io/stylesheets/mdl-course/app.#{data.course.primary_color}-#{data.course.secondary_color}.css" : "app.#{data.course.primary_color}-#{data.course.secondary_color}"), :media => "all", :rel => "stylesheet")	
+		= stylesheet_link_tag("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700", "https://fonts.googleapis.com/icon?family=Material+Icons", "https://code.getmdl.io/1.1.3/material.#{data.course.primary_color}-#{data.course.secondary_color}.min.css", (build? ? "https://oncomouse.github.io/stylesheets/mdl-course/app.#{data.course.primary_color}-#{data.course.secondary_color}.css" : "app.#{data.course.primary_color}-#{data.course.secondary_color}"), :media => "all", :rel => "stylesheet")	
 		/ Try to polyfill for older versions of Internet Explorer:
 		<!--[if lte IE 9]>
 		= javascript_include_tag("//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js", "//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js", "//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.min.js", "//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js", "//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js")
