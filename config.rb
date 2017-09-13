@@ -8,7 +8,8 @@ set :markdown, :fenced_code_blocks => true,
 				 :footnotes => true,
 				 :superscript => true
 
-set :haml, { :ugly => false, :format => :html5 }
+set :haml, { :format => :html5 }
+Haml::TempleEngine.disable_option_validator!
 
 # Figure out the course's file name to set deploy path
 $course_tag = File.basename Dir.pwd
