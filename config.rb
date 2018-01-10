@@ -3,10 +3,12 @@
 ###
 set :markdown_engine, :kramdown
 set :markdown, :fenced_code_blocks => true,
-				 :autolink => true, 
+				 :autolink => true,
 				 :smartypants => true,
 				 :footnotes => true,
 				 :superscript => true
+
+activate :livereload, host: "0.0.0.0"
 
 set :haml, { :format => :html5 }
 Haml::TempleEngine.disable_option_validator!
@@ -44,7 +46,7 @@ helpers do
 	def rot13(string)
 		string.tr "A-Za-z", "N-ZA-Mn-za-m"
 	end
- 
+
 	# HTML encodes ASCII chars a-z, useful for obfuscating
 	# an email address from spiders and spammers
 	def html_obfuscate(string)
@@ -52,24 +54,24 @@ helpers do
 		lower = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z)
 		upper = %w(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
 		char_array = string.split('')
-		char_array.each do |char|	
+		char_array.each do |char|
 			output = lower.index(char) + 97 if lower.include?(char)
 			output = upper.index(char) + 65 if upper.include?(char)
 			if output
 				output_array << "&##{output};"
-			else 
+			else
 				output_array << char
 			end
 		end
 		return output_array.join
 	end
-	
+
 	def js_antispam_email_link(email, linktext=email)
 		user, domain = email.split('@')
 		user	 = html_obfuscate(user)
 		domain = html_obfuscate(domain)
 		# if linktext wasn't specified, throw encoded email address builder into js document.write statement
-		linktext = "'+'#{user}'+'@'+'#{domain}'+'" if linktext == email 
+		linktext = "'+'#{user}'+'@'+'#{domain}'+'" if linktext == email
 		rot13_encoded_email = rot13(email) # obfuscate email address as rot13
 		#out =	"<noscript>#{linktext}<br/><small>#{user}(at)#{domain}</small></noscript>\n" # js disabled browsers see this
 		out = "<script language='javascript'>\n"
@@ -90,11 +92,11 @@ set :images_dir, 'images'
 configure :build do
 
 	ignore "stylesheets/*"
-	
+
 	activate :minify_html
 	activate :minify_javascript, inline: true
 	activate :minify_css, inline: true
-	
+
 	set :http_prefix, config[:build_http_prefix]
 end
 
