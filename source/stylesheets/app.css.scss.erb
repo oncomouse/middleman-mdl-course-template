@@ -3,21 +3,21 @@
 $primary: "<%=(defined?(primary_color) ? primary_color : data.course.primary_color).gsub(/_/,"-")%>";
 $secondary: "<%=(defined?(secondary_color) ? secondary_color : data.course.secondary_color).gsub(/_/,"-")%>";
 $linkColor: contrast-color(#fff, color($secondary, "darken-2"), color($secondary, "base"));
-html,body {
+html,
+body {
 	font-family: "Roboto", sans-serif;
 }
-
 a {
 	color: $linkColor;
 }
-
-p, ol, ul {
+p,
+ol,
+ul {
 	font-size: 16px;
 	&, h6 {
 		line-height: 26px;
 	}
 }
-
 $headerBackgroundColor: color($primary, "base");
 @if $primary == "purple" or $primary == "deep-purple" or $primary == "blue" or $primary == "deep-orange" or $primary == "teal" or $primary == "brown" or $primary == "indigo" {
 	$headerBackgroundColor: color($primary, "darken-1");
@@ -25,7 +25,6 @@ $headerBackgroundColor: color($primary, "base");
 	$headerBackgroundColor: color($primary, "darken-2");
 } @else if $primary == "orange" or $primary == "lime" {
 	$headerBackgroundColor: color($primary, "darken-3");
-	
 }
 $headerForegroundColor: contrast-color($headerBackgroundColor, rgb(255,255,255), rgb(66,66,66));
 .mdl-layout__header {
@@ -35,11 +34,9 @@ $headerForegroundColor: contrast-color($headerBackgroundColor, rgb(255,255,255),
 		color: $headerForegroundColor;
 	}
 }
-
 .mdl-layout--fixed-header {
 	height: auto;
 }
-
 body {
 	display: flex;
     min-height: 100vh;
@@ -49,11 +46,10 @@ body {
 main {
 	flex: 1 0 auto;
 }
-footer, main {
-	a {
-		&:hover {
+footer,
+main {
+	a:hover {
 			color: color($secondary, "accent-3");
-		}
 	}
 }
 .mdl-mini-footer {
@@ -69,10 +65,7 @@ footer, main {
 .page-content__sidebar-widget {
 	width: 95%;
 	margin: auto;
-	margin-top: 2rem;
-	&:first-child {
-		margin-top: 0;
-	}
+	margin-bottom: 16px;
 }
 .page-content__main {
 	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
@@ -80,7 +73,6 @@ footer, main {
 	background: white;
 	margin-bottom: 12rem;
 }
-
 .mdl-layout__header-row .mdl-navigation__link {
 	border-bottom: 3px solid transparent;
 	margin-bottom: 3px;
@@ -117,12 +109,11 @@ footer, main {
 		margin-top: 64px;
 	}
 }
-.course-title {
-	& small {
-		display: block;
-	}
+.course-title small {
+	display: block;
 }
-.mdl-layout__drawer > .mdl-layout__title, .mdl-layout__drawer > .mdl-layout-title {
+.mdl-layout__drawer > .mdl-layout__title,
+.mdl-layout__drawer > .mdl-layout-title {
 	line-height: 30px;
 	margin-top: 20px;
 }
@@ -142,7 +133,10 @@ footer, main {
 .ie-only {
 	display: none;
 }
-html.ie6, html.ie7, html.ie8, html.ie9 {
+html.ie6,
+html.ie7,
+html.ie8,
+html.ie9 {
 	display: block;
 }
 article .subtitle {
