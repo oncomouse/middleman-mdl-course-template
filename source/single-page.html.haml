@@ -9,300 +9,321 @@ hidden: true
 - primary_color = data.course.primary_color
 - secondary_color = data.course.secondary_color
 
+
+- colors = Hash.new
+- colors["materialize-red"] = {   "base": "#e51c23", "lighten-5": "#fdeaeb", "lighten-4": "#f8c1c3", "lighten-3": "#f3989b", "lighten-2": "#ee6e73", "lighten-1": "#ea454b", "darken-1": "#d0181e", "darken-2": "#b9151b", "darken-3": "#a21318", "darken-4": "#8b1014" }
+- colors["red"] = {   "base": "#F44336", "lighten-5": "#FFEBEE", "lighten-4": "#FFCDD2", "lighten-3": "#EF9A9A", "lighten-2": "#E57373", "lighten-1": "#EF5350", "darken-1": "#E53935", "darken-2": "#D32F2F", "darken-3": "#C62828", "darken-4": "#B71C1C", "accent-1": "#FF8A80", "accent-2": "#FF5252", "accent-3": "#FF1744", "accent-4": "#D50000" }
+- colors["pink"] = {   "base": "#e91e63", "lighten-5": "#fce4ec", "lighten-4": "#f8bbd0", "lighten-3": "#f48fb1", "lighten-2": "#f06292", "lighten-1": "#ec407a", "darken-1": "#d81b60", "darken-2": "#c2185b", "darken-3": "#ad1457", "darken-4": "#880e4f", "accent-1": "#ff80ab", "accent-2": "#ff4081", "accent-3": "#f50057", "accent-4": "#c51162" }
+- colors["purple"] = {   "base": "#9c27b0", "lighten-5": "#f3e5f5", "lighten-4": "#e1bee7", "lighten-3": "#ce93d8", "lighten-2": "#ba68c8", "lighten-1": "#ab47bc", "darken-1": "#8e24aa", "darken-2": "#7b1fa2", "darken-3": "#6a1b9a", "darken-4": "#4a148c", "accent-1": "#ea80fc", "accent-2": "#e040fb", "accent-3": "#d500f9", "accent-4": "#aa00ff" }
+- colors["deep-purple"] = {   "base": "#673ab7", "lighten-5": "#ede7f6", "lighten-4": "#d1c4e9", "lighten-3": "#b39ddb", "lighten-2": "#9575cd", "lighten-1": "#7e57c2", "darken-1": "#5e35b1", "darken-2": "#512da8", "darken-3": "#4527a0", "darken-4": "#311b92", "accent-1": "#b388ff", "accent-2": "#7c4dff", "accent-3": "#651fff", "accent-4": "#6200ea" }
+- colors["indigo"] = {   "base": "#3f51b5", "lighten-5": "#e8eaf6", "lighten-4": "#c5cae9", "lighten-3": "#9fa8da", "lighten-2": "#7986cb", "lighten-1": "#5c6bc0", "darken-1": "#3949ab", "darken-2": "#303f9f", "darken-3": "#283593", "darken-4": "#1a237e", "accent-1": "#8c9eff", "accent-2": "#536dfe", "accent-3": "#3d5afe", "accent-4": "#304ffe" }
+- colors["blue"] = {   "base": "#2196F3", "lighten-5": "#E3F2FD", "lighten-4": "#BBDEFB", "lighten-3": "#90CAF9", "lighten-2": "#64B5F6", "lighten-1": "#42A5F5", "darken-1": "#1E88E5", "darken-2": "#1976D2", "darken-3": "#1565C0", "darken-4": "#0D47A1", "accent-1": "#82B1FF", "accent-2": "#448AFF", "accent-3": "#2979FF", "accent-4": "#2962FF" }
+- colors["light-blue"] = {   "base": "#03a9f4", "lighten-5": "#e1f5fe", "lighten-4": "#b3e5fc", "lighten-3": "#81d4fa", "lighten-2": "#4fc3f7", "lighten-1": "#29b6f6", "darken-1": "#039be5", "darken-2": "#0288d1", "darken-3": "#0277bd", "darken-4": "#01579b", "accent-1": "#80d8ff", "accent-2": "#40c4ff", "accent-3": "#00b0ff", "accent-4": "#0091ea" }
+- colors["cyan"] = {   "base": "#00bcd4", "lighten-5": "#e0f7fa", "lighten-4": "#b2ebf2", "lighten-3": "#80deea", "lighten-2": "#4dd0e1", "lighten-1": "#26c6da", "darken-1": "#00acc1", "darken-2": "#0097a7", "darken-3": "#00838f", "darken-4": "#006064", "accent-1": "#84ffff", "accent-2": "#18ffff", "accent-3": "#00e5ff", "accent-4": "#00b8d4" }
+- colors["teal"] = {   "base": "#009688", "lighten-5": "#e0f2f1", "lighten-4": "#b2dfdb", "lighten-3": "#80cbc4", "lighten-2": "#4db6ac", "lighten-1": "#26a69a", "darken-1": "#00897b", "darken-2": "#00796b", "darken-3": "#00695c", "darken-4": "#004d40", "accent-1": "#a7ffeb", "accent-2": "#64ffda", "accent-3": "#1de9b6", "accent-4": "#00bfa5" }
+- colors["green"] = {   "base": "#4CAF50", "lighten-5": "#E8F5E9", "lighten-4": "#C8E6C9", "lighten-3": "#A5D6A7", "lighten-2": "#81C784", "lighten-1": "#66BB6A", "darken-1": "#43A047", "darken-2": "#388E3C", "darken-3": "#2E7D32", "darken-4": "#1B5E20", "accent-1": "#B9F6CA", "accent-2": "#69F0AE", "accent-3": "#00E676", "accent-4": "#00C853" }
+- colors["light-green"] = {   "base": "#8bc34a", "lighten-5": "#f1f8e9", "lighten-4": "#dcedc8", "lighten-3": "#c5e1a5", "lighten-2": "#aed581", "lighten-1": "#9ccc65", "darken-1": "#7cb342", "darken-2": "#689f38", "darken-3": "#558b2f", "darken-4": "#33691e", "accent-1": "#ccff90", "accent-2": "#b2ff59", "accent-3": "#76ff03", "accent-4": "#64dd17" }
+- colors["lime"] = {   "base": "#cddc39", "lighten-5": "#f9fbe7", "lighten-4": "#f0f4c3", "lighten-3": "#e6ee9c", "lighten-2": "#dce775", "lighten-1": "#d4e157", "darken-1": "#c0ca33", "darken-2": "#afb42b", "darken-3": "#9e9d24", "darken-4": "#827717", "accent-1": "#f4ff81", "accent-2": "#eeff41", "accent-3": "#c6ff00", "accent-4": "#aeea00" }
+- colors["yellow"] = {   "base": "#ffeb3b", "lighten-5": "#fffde7", "lighten-4": "#fff9c4", "lighten-3": "#fff59d", "lighten-2": "#fff176", "lighten-1": "#ffee58", "darken-1": "#fdd835", "darken-2": "#fbc02d", "darken-3": "#f9a825", "darken-4": "#f57f17", "accent-1": "#ffff8d", "accent-2": "#ffff00", "accent-3": "#ffea00", "accent-4": "#ffd600" }
+- colors["amber"] = {   "base": "#ffc107", "lighten-5": "#fff8e1", "lighten-4": "#ffecb3", "lighten-3": "#ffe082", "lighten-2": "#ffd54f", "lighten-1": "#ffca28", "darken-1": "#ffb300", "darken-2": "#ffa000", "darken-3": "#ff8f00", "darken-4": "#ff6f00", "accent-1": "#ffe57f", "accent-2": "#ffd740", "accent-3": "#ffc400", "accent-4": "#ffab00" }
+- colors["orange"] = {   "base": "#ff9800", "lighten-5": "#fff3e0", "lighten-4": "#ffe0b2", "lighten-3": "#ffcc80", "lighten-2": "#ffb74d", "lighten-1": "#ffa726", "darken-1": "#fb8c00", "darken-2": "#f57c00", "darken-3": "#ef6c00", "darken-4": "#e65100", "accent-1": "#ffd180", "accent-2": "#ffab40", "accent-3": "#ff9100", "accent-4": "#ff6d00" }
+- colors["deep-orange"] = {   "base": "#ff5722", "lighten-5": "#fbe9e7", "lighten-4": "#ffccbc", "lighten-3": "#ffab91", "lighten-2": "#ff8a65", "lighten-1": "#ff7043", "darken-1": "#f4511e", "darken-2": "#e64a19", "darken-3": "#d84315", "darken-4": "#bf360c", "accent-1": "#ff9e80", "accent-2": "#ff6e40", "accent-3": "#ff3d00", "accent-4": "#dd2c00" }
+- colors["brown"] = {   "base": "#795548", "lighten-5": "#efebe9", "lighten-4": "#d7ccc8", "lighten-3": "#bcaaa4", "lighten-2": "#a1887f", "lighten-1": "#8d6e63", "darken-1": "#6d4c41", "darken-2": "#5d4037", "darken-3": "#4e342e", "darken-4": "#3e2723" }
+- colors["blue-grey"] = {   "base": "#607d8b", "lighten-5": "#eceff1", "lighten-4": "#cfd8dc", "lighten-3": "#b0bec5", "lighten-2": "#90a4ae", "lighten-1": "#78909c", "darken-1": "#546e7a", "darken-2": "#455a64", "darken-3": "#37474f", "darken-4": "#263238" }
+- colors["grey"] = {   "base": "#9e9e9e", "lighten-5": "#fafafa", "lighten-4": "#f5f5f5", "lighten-3": "#eeeeee", "lighten-2": "#e0e0e0", "lighten-1": "#bdbdbd", "darken-1": "#757575", "darken-2": "#616161", "darken-3": "#424242", "darken-4": "#212121" }
+
 !!! 5
 %html{lang: "en"}
-	%head
-		%meta{ charset: "utf-8"}
-		/ Open Graph Stuff
-		%meta{ property: "og:locale", content: "en_US" }
-		%meta{ property: "og:url", content: "#{data.course.url}#{current_page.url}" }
-		%meta{ property: "og:description", :content=> description }
-		%meta{ property: "og:title", content: title}
-		%meta{ property: "og:site_name", content: title }
-		%meta{ property: "og:type", content: "website" }
-		
-		/ Twitter Card Stuff
-		%meta{ name: "twitter:card", content: "summary" }
-		%meta{ name: "twitter:description", :content=> description }
-		%meta{ name: "twitter:title", content: title }
-		
-		-# Always force latest IE rendering engine (even in intranet) & Chrome Frame
-		-# Remove this if you use the .htaccess
-		%meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }/
-		%meta{ name: "viewport", content: "width=device-width, initial-scale=1.0, minimum-scale=1.0"}
-		%meta{ name: "description", content: description}
-		%title= title
-		=stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en", "https://fonts.googleapis.com/icon?family=Material+Icons", "https://code.getmdl.io/1.2.0/material.#{primary_color}-#{secondary_color}.min.css", "styles"
-		:scss
-			@import "mdl-utils/mdl-colors";
-			$primary_color: "#{primary_color.gsub(/_/,"-")}";
-			$secondary_color: "#{secondary_color.gsub(/_/,"-")}";
-			
-			p, ol, ul {
-				font-size: 16px;
-				&, h6 {
-					line-height: 26px;
-				}
-			}
-			h1, h2, h3, h4, h5, h6 {
-				small {
-					display: block;
-					opacity: 1.0;
-				}
-			}
-			
-			a {
-				color: color($secondary_color, "accent-4");
-				&:hover {
-					color: color($secondary_color, "accent-3");
-				}
-			}
-			
-			body {
-				display: flex;
-			    min-height: 100vh;
-			    flex-direction: column;
-				background-color: rgb(238, 238, 238);
-			}
-			main {
-				flex: 1 0 auto;
-			}
-			
-			.demo-ribbon {
-			  width: 100%;
-			  height: 40vh;
-			  background-color: color($primary_color, "darken-1");
-			  -webkit-flex-shrink: 0;
-			      -ms-flex-negative: 0;
-			          flex-shrink: 0;
-			}
+  %head
+    %meta{ charset: "utf-8"}
+    / Open Graph Stuff
+    %meta{ property: "og:locale", content: "en_US" }
+    %meta{ property: "og:url", content: "#{data.course.url}#{current_page.url}" }
+    %meta{ property: "og:description", :content=> description }
+    %meta{ property: "og:title", content: title}
+    %meta{ property: "og:site_name", content: title }
+    %meta{ property: "og:type", content: "website" }
 
-			.demo-main {
-			  margin-top: -35vh;
-			  -webkit-flex-shrink: 0;
-			      -ms-flex-negative: 0;
-			          flex-shrink: 0;
-			}
+    / Twitter Card Stuff
+    %meta{ name: "twitter:card", content: "summary" }
+    %meta{ name: "twitter:description", :content=> description }
+    %meta{ name: "twitter:title", content: title }
 
-			.demo-header .mdl-layout__header-row {
-			  padding-left: 40px;
-			}
+    -# Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    -# Remove this if you use the .htaccess
+    %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }/
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0, minimum-scale=1.0"}
+    %meta{ name: "description", content: description}
+    %title= title
+    =stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en", "https://fonts.googleapis.com/icon?family=Material+Icons", "https://code.getmdl.io/1.2.0/material.#{primary_color}-#{secondary_color}.min.css", "styles"
+    - css_primary_color = primary_color.gsub(/_/,"-")
+    - css_secondary_color=secondary_color.gsub(/_/,"-")
+    :css
+      p, ol, ul {
+        font-size: 16px;
+        &, h6 {
+          line-height: 26px;
+        }
+      }
+      h1, h2, h3, h4, h5, h6 {
+        small {
+          display: block;
+          opacity: 1.0;
+        }
+      }
 
-			.demo-container {
-			  max-width: 1600px;
-			  width: calc(100% - 16px);
-			  margin: 0 auto;
-			}
+      a {
+        color: #{colors[secondary_color][:"accent-4"]};
+        &:hover {
+          color: #{colors[secondary_color][:"accent-3"]};
+        }
+      }
 
-			.demo-content {
-			  border-radius: 2px;
-			  padding: 80px 56px;
-			  margin-bottom: 80px;
-			}
+      body {
+        display: flex;
+          min-height: 100vh;
+          flex-direction: column;
+        background-color: rgb(238, 238, 238);
+      }
+      main {
+        flex: 1 0 auto;
+      }
 
-			.demo-layout {
-				background: color($primary_color, "lighten-5")
-			}
+      .demo-ribbon {
+        width: 100%;
+        height: 40vh;
+        background-color: #{colors[primary_color][:"darken-1"]};
+        -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+                flex-shrink: 0;
+      }
 
-			.demo-layout.is-small-screen .demo-content {
-			  padding: 40px 28px;
-			}
+      .demo-main {
+        margin-top: -35vh;
+        -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+                flex-shrink: 0;
+      }
 
-			.demo-content h3 {
-			  margin-top: 48px;
-			}
+      .demo-header .mdl-layout__header-row {
+        padding-left: 40px;
+      }
 
-			.demo-footer {
-			  padding-left: 40px;
-			}
+      .demo-container {
+        max-width: 1600px;
+        width: calc(100% - 16px);
+        margin: 0 auto;
+      }
 
-			.demo-footer .mdl-mini-footer--link-list a {
-			  font-size: 13px;
-			}
-			.mdl-data-table {
-				font-size: 14px;
-				margin: auto;
-				&--wide {
-					width: 80%;
-				}
-			}
-			@media print {
-				.demo-content {
-					padding-top: 0;
-					padding-bottom: 0;
-				}
-				p,ol,ul {
-					font-size: 14px;
-					line-height: 1.2;
-				}
-				h1,h2,h3,h4,h5,h6 {
-					margin-top: 16px !important;
-					margin-bottom: 0;
-					line-height: 1.25;
-				}
-				h1 {
-					font-size: 36px;
-				}
-				h2 {
-					font-size: 24px;
-				}
-				h3 {
-					font-size: 18px;
-				}
-			}
-	%body
-		.demo-layout.mdl-layout.mdl-layout--fixed-header.mdl-js-layout
-			.demo-ribbon
-			%main.demo-main.mdl-layout__content
-				.demo-container.mdl-grid
-					.mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
-					.demo-content.mdl-color--white.mdl-shadow--4dp.content.mdl-color-text--grey-800.mdl-cell.mdl-cell--8-col
-						.row
-							.col-md-8.center-block
-								%h1
-									= partial "partials/course-title"
-								%h2 Course Description
+      .demo-content {
+        border-radius: 2px;
+        padding: 80px 56px;
+        margin-bottom: 80px;
+      }
 
-								= partial "partials/course-description"
-						.row
-							- if current_page.data.course_sidebar_widgets
-								- current_page.data.course_sidebar_widgets.each do |sidebar_widget|
-									.col-md-4.center-block
-										:markdown
-											#{sidebar_widget}
-						-files.each do |file|
-							.row
-								.col-md-8.center-block
-									:markdown
-										#{File.read(sitemap.find_resource_by_path(file).source_file).split(/^---$/)[-1]}
-						.row
-							.col-md-8.center-block
-								:erb
-									<%
-										# As a rule, don't edit this file.
-										#
-										# If you need to change the course schedule, edit data/schedule.yml
-										#
-										# If you need to change the description, edit source/partials/_schedule-description.md
-									%>
-									<%= partial "partials/schedule-description" %>
-									<%if data['schedule'].has_key? 'classes'
-										today = data['schedule']['start']
-										holiday_dates = data['schedule']['holidays'].map { |x| x['date'] }
-										holiday_names = data['schedule']['holidays'].map { |x| x.has_key?('name') ? x['name'] : nil }
-										current_meeting = 0
-										current_day = 0
-										current_week = 1
-										current_unit = 1
-	
-										data_structure = {
-		
-										}
-										catch (:done) do
-											data['schedule']['meets'].each do |meeting|
-												if today.strftime('%w').to_i < Chronic.parse(meeting).to_date.strftime('%w').to_i 
-													today = Chronic.parse("next #{meeting}", :now => today).to_date
-													throw :done
-												elsif today.strftime('%w').to_i == Chronic.parse(meeting).to_date.strftime('%w').to_i 
-													throw :done
-												else
-													if current_meeting == 0
-														current_week += 1
-													end
-													current_meeting += 1
-												end
-											end
-										end
-	
-										# Parse through the semester:
-										while today <= data['schedule']['end'] + 1
-											# Figure out the day content (either a holiday or out of the schedule):
-											if holiday_dates.index(today).is_a? Integer
-												day = "**No Class**\n\n#{if not holiday_names[holiday_dates.index(today)].nil? then '*' +  holiday_names[holiday_dates.index(today)] + '*' end}"
-												data_structure[today.to_s] = day
-											else
-												data_structure[today.to_s] = nil
-											end
-											# Update the next meeting day:
-											current_meeting += 1
-		
-											# If we're at the end of the week, close the .week div and reset to next week:
-											if current_meeting == data['schedule']['meets'].length
-												current_meeting = 0
-											end
-											# Generate the next day we will look at in the next iteration of the loop:
-											today = Chronic.parse("next #{data['schedule']['meets'][current_meeting]}", :now => today).to_date
-										end
-										if data['schedule'].has_key? 'redefined'
-											data['schedule']['redefined'].each do |redefined_day|
-												if data['schedule']['meets'].index(redefined_day['is_a']) != nil
-													data_structure[redefined_day['date'].to_s] = nil
-												elsif data['schedule']['meets'].index(redefined_day['date'].strftime("%A").downcase) != nil and data['schedule']['meets'].index(redefined_day['is_a']) == nil
-													data_structure[redefined_day['date'].to_s] = "**No Class**\n\n*Redefined Day (Go To #{redefined_day['is_a'].capitalize} Classes)*"
-												end
-											end
-										end
-									end
-									%>
-									<div class="schedule">
-										<%
-										current_meeting = 0
-										current_week = 1
-										current_unit = 1
-										current_day = 0
-	
-										data_structure.keys.sort.each do |today|
-											today = Chronic.parse(today)
-											# Open a new week if we're at the start of the week:
-											if current_meeting == 0
-												if data['schedule'].has_key?('units') and data['schedule']['units'].index{ |a| a['start'] == current_week }%>
-													<div class="week">
-														<h2>Unit <%=current_unit%>: <%=data['schedule']['units'][data['schedule']['units'].index{ |a| a['start'] == current_week }]['title'] %></h2>
-														<% if data['schedule']['units'][data['schedule']['units'].index{ |a| a['start'] == current_week }].has_key? 'description' %>
-														<%= Tilt['markdown'].new(config[:markdown]) { data['schedule']['units'][data['schedule']['units'].index{ |a| a['start'] == current_week }]['description'] }.render(app) %>
-														<%end%>
-													</div>
-												<% 
-													current_unit += 1
-												end %>
-									<div class="mdl-grid">
-										<h<%=data['schedule'].has_key?('units') ? 3 : 2%> class="mdl-cell mdl-cell--12-col schedule__week">Week <%= current_week%><% if data['schedule'].has_key? 'weeks' and data['schedule']['weeks'].has_key? current_week then%><small class="schedule__week-title"> <%= data['schedule']['weeks'][current_week]%></small><% end %></h<%=data['schedule'].has_key?('units') ? 3 : 2%>>
-											<%
-												current_week += 1
-											end 
-											# Create a new day and print the date:
-											%>
-										<div class="mdl-cell mdl-cell--<%=(12 / data['schedule']['meets'].length)%>-col">
-											<p><strong><%=today.strftime('%a %m/%d')%></strong></p>
-											<%
-			
-												# Figure out the day content (either a holiday or out of the schedule):
-												if not data_structure[today.to_date.to_s].nil?
-													day = data_structure[today.to_date.to_s]
-												else
-													day = data['schedule']['classes'][current_day]
-													current_day += 1
-												end
-												if day.nil?
-													day = ''
-												end
+      .demo-layout {
+        background: #{colors[primary_color][:"lighten-5"]}
+      }
 
-											%>
-											<%=  
-												# Render the content of the day using Markdown:
-												Tilt['markdown'].new(config[:markdown]) { day }.render(app) %>
-										</div>
-											<%
-											# Update the next meeting day:
-											current_meeting += 1
-		
-											# If we're at the end of the week, close the .week div and reset to next week:
-											if current_meeting == data['schedule']['meets'].length%>
-									</div>
-											<%
-												current_meeting = 0
-											end
-										end
-										%>
-									</div>
-		%footer
+      .demo-layout.is-small-screen .demo-content {
+        padding: 40px 28px;
+      }
+
+      .demo-content h3 {
+        margin-top: 48px;
+      }
+
+      .demo-footer {
+        padding-left: 40px;
+      }
+
+      .demo-footer .mdl-mini-footer--link-list a {
+        font-size: 13px;
+      }
+      .mdl-data-table {
+        font-size: 14px;
+        margin: auto;
+        &--wide {
+          width: 80%;
+        }
+      }
+      @media print {
+        .demo-content {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+        p,ol,ul {
+          font-size: 14px;
+          line-height: 1.2;
+        }
+        h1,h2,h3,h4,h5,h6 {
+          margin-top: 16px !important;
+          margin-bottom: 0;
+          line-height: 1.25;
+        }
+        h1 {
+          font-size: 36px;
+        }
+        h2 {
+          font-size: 24px;
+        }
+        h3 {
+          font-size: 18px;
+        }
+      }
+  %body
+    .demo-layout.mdl-layout.mdl-layout--fixed-header.mdl-js-layout
+      .demo-ribbon
+      %main.demo-main.mdl-layout__content
+        .demo-container.mdl-grid
+          .mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
+          .demo-content.mdl-color--white.mdl-shadow--4dp.content.mdl-color-text--grey-800.mdl-cell.mdl-cell--8-col
+            .row
+              .col-md-8.center-block
+                %h1
+                  = partial "partials/course-title"
+                %h2 Course Description
+
+                = partial "partials/course-description"
+            .row
+              - if current_page.data.course_sidebar_widgets
+                - current_page.data.course_sidebar_widgets.each do |sidebar_widget|
+                  .col-md-4.center-block
+                    :markdown
+                      #{sidebar_widget}
+            -files.each do |file|
+              .row
+                .col-md-8.center-block
+                  :markdown
+                    #{File.read(sitemap.find_resource_by_path(file).source_file).split(/^---$/)[-1]}
+            .row
+              .col-md-8.center-block
+                :erb
+                  <%
+                    # As a rule, don't edit this file.
+                    #
+                    # If you need to change the course schedule, edit data/schedule.yml
+                    #
+                    # If you need to change the description, edit source/partials/_schedule-description.md
+                  %>
+                  <%= partial "partials/schedule-description" %>
+                  <%if data['schedule'].has_key? 'classes'
+                    today = data['schedule']['start']
+                    holiday_dates = data['schedule']['holidays'].map { |x| x['date'] }
+                    holiday_names = data['schedule']['holidays'].map { |x| x.has_key?('name') ? x['name'] : nil }
+                    current_meeting = 0
+                    current_day = 0
+                    current_week = 1
+                    current_unit = 1
+
+                    data_structure = {
+
+                    }
+                    catch (:done) do
+                      data['schedule']['meets'].each do |meeting|
+                        if today.strftime('%w').to_i < Chronic.parse(meeting).to_date.strftime('%w').to_i
+                          today = Chronic.parse("next #{meeting}", :now => today).to_date
+                          throw :done
+                        elsif today.strftime('%w').to_i == Chronic.parse(meeting).to_date.strftime('%w').to_i
+                          throw :done
+                        else
+                          if current_meeting == 0
+                            current_week += 1
+                          end
+                          current_meeting += 1
+                        end
+                      end
+                    end
+
+                    # Parse through the semester:
+                    while today <= data['schedule']['end'] + 1
+                      # Figure out the day content (either a holiday or out of the schedule):
+                      if holiday_dates.index(today).is_a? Integer
+                        day = "**No Class**\n\n#{if not holiday_names[holiday_dates.index(today)].nil? then '*' +  holiday_names[holiday_dates.index(today)] + '*' end}"
+                        data_structure[today.to_s] = day
+                      else
+                        data_structure[today.to_s] = nil
+                      end
+                      # Update the next meeting day:
+                      current_meeting += 1
+
+                      # If we're at the end of the week, close the .week div and reset to next week:
+                      if current_meeting == data['schedule']['meets'].length
+                        current_meeting = 0
+                      end
+                      # Generate the next day we will look at in the next iteration of the loop:
+                      today = Chronic.parse("next #{data['schedule']['meets'][current_meeting]}", :now => today).to_date
+                    end
+                    if data['schedule'].has_key? 'redefined'
+                      data['schedule']['redefined'].each do |redefined_day|
+                        if data['schedule']['meets'].index(redefined_day['is_a']) != nil
+                          data_structure[redefined_day['date'].to_s] = nil
+                        elsif data['schedule']['meets'].index(redefined_day['date'].strftime("%A").downcase) != nil and data['schedule']['meets'].index(redefined_day['is_a']) == nil
+                          data_structure[redefined_day['date'].to_s] = "**No Class**\n\n*Redefined Day (Go To #{redefined_day['is_a'].capitalize} Classes)*"
+                        end
+                      end
+                    end
+                  end
+                  %>
+                  <div class="schedule">
+                    <%
+                    current_meeting = 0
+                    current_week = 1
+                    current_unit = 1
+                    current_day = 0
+
+                    data_structure.keys.sort.each do |today|
+                      today = Chronic.parse(today)
+                      # Open a new week if we're at the start of the week:
+                      if current_meeting == 0
+                        if data['schedule'].has_key?('units') and data['schedule']['units'].index{ |a| a['start'] == current_week }%>
+                          <div class="week">
+                            <h2>Unit <%=current_unit%>: <%=data['schedule']['units'][data['schedule']['units'].index{ |a| a['start'] == current_week }]['title'] %></h2>
+                            <% if data['schedule']['units'][data['schedule']['units'].index{ |a| a['start'] == current_week }].has_key? 'description' %>
+                            <%= Tilt['markdown'].new(config[:markdown]) { data['schedule']['units'][data['schedule']['units'].index{ |a| a['start'] == current_week }]['description'] }.render(app) %>
+                            <%end%>
+                          </div>
+                        <%
+                          current_unit += 1
+                        end %>
+                  <div class="mdl-grid">
+                    <h<%=data['schedule'].has_key?('units') ? 3 : 2%> class="mdl-cell mdl-cell--12-col schedule__week">Week <%= current_week%><% if data['schedule'].has_key? 'weeks' and data['schedule']['weeks'].has_key? current_week then%><small class="schedule__week-title"> <%= data['schedule']['weeks'][current_week]%></small><% end %></h<%=data['schedule'].has_key?('units') ? 3 : 2%>>
+                      <%
+                        current_week += 1
+                      end
+                      # Create a new day and print the date:
+                      %>
+                    <div class="mdl-cell mdl-cell--<%=(12 / data['schedule']['meets'].length)%>-col">
+                      <p><strong><%=today.strftime('%a %m/%d')%></strong></p>
+                      <%
+
+                        # Figure out the day content (either a holiday or out of the schedule):
+                        if not data_structure[today.to_date.to_s].nil?
+                          day = data_structure[today.to_date.to_s]
+                        else
+                          day = data['schedule']['classes'][current_day]
+                          current_day += 1
+                        end
+                        if day.nil?
+                          day = ''
+                        end
+
+                      %>
+                      <%=
+                        # Render the content of the day using Markdown:
+                        Tilt['markdown'].new(config[:markdown]) { day }.render(app) %>
+                    </div>
+                      <%
+                      # Update the next meeting day:
+                      current_meeting += 1
+
+                      # If we're at the end of the week, close the .week div and reset to next week:
+                      if current_meeting == data['schedule']['meets'].length%>
+                  </div>
+                      <%
+                        current_meeting = 0
+                      end
+                    end
+                    %>
+                  </div>
+    %footer
