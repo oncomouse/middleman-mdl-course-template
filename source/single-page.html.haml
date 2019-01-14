@@ -73,11 +73,11 @@ hidden: true
       }
 
       a {
-        color: #{colors[secondary_color][:"accent-4"]};
+        color: #{colors[css_secondary_color][:"accent-4"]};
       }
 
       a:hover {
-        color: #{colors[secondary_color][:"accent-3"]};
+        color: #{colors[css_secondary_color][:"accent-3"]};
       }
 
       body {
@@ -94,7 +94,7 @@ hidden: true
       .demo-ribbon {
         width: 100%;
         height: 40vh;
-        background-color: #{colors[primary_color][:"darken-1"]};
+        background-color: #{colors[css_primary_color][:"darken-1"]};
         -webkit-flex-shrink: 0;
             -ms-flex-negative: 0;
                 flex-shrink: 0;
@@ -124,7 +124,7 @@ hidden: true
       }
 
       .demo-layout {
-        background: #{colors[primary_color][:"lighten-5"]}
+        background: #{colors[css_primary_color][:"lighten-5"]}
       }
 
       .demo-layout.is-small-screen .demo-content {
@@ -191,13 +191,13 @@ hidden: true
               - if current_page.data.course_sidebar_widgets
                 - current_page.data.course_sidebar_widgets.each do |sidebar_widget|
                   .col-md-4.center-block
-                    :markdown
-                      #{sidebar_widget}
+                    :erb
+                      <%= Tilt['markdown'].new(config[:markdown]) { sidebar_widget }.render(app) %>
             -files.each do |file|
               .row
                 .col-md-8.center-block
-                  :markdown
-                    #{File.read(sitemap.find_resource_by_path(file).source_file).split(/^---$/)[-1]}
+                  :erb
+                    <%= Tilt['markdown'].new(config[:markdown]) { File.read(sitemap.find_resource_by_path(file).source_file).split(/^---$/)[-1] }.render(app) %>
             .row
               .col-md-8.center-block
                 :erb
