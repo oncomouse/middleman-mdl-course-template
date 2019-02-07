@@ -19,6 +19,15 @@ $course_tag = File.basename Dir.pwd
 # Base path for all courses:
 config[:build_http_prefix] = "/courses/#{$course_tag}"
 
+###
+# .htaccess
+###
+
+page ".htaccess.apache", :layout => false
+after_build do
+  File.rename 'build/.htaccess.apache', 'build/.htaccess'
+end
+
 ### Change everything before #{config[:build_http_prefix]} to the location you will be deploying these courses.
 #   If your website is http://foobar.com/me and /courses is created in that directory,
 #   change http://your-server.com to http://foobar.com/me
