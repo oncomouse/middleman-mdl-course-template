@@ -6,81 +6,81 @@
 <!--[if IE 9]>	  <html lang="en" class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->
 %html{ :lang => "en" }
-	<!--<![endif]-->
-	%head
-		%meta{ :charset => "utf-8" }/
-		/ Open Graph Stuff
-		%meta{ property: "og:locale", content: "en_US" }
-		%meta{ property: "og:url", content: "#{config[:site_deploy_root]}#{current_page.url}" }
-		%meta{ property: "og:description", :content=> data.course.description }
-		%meta{ property: "og:title", content: "#{data.course.number} - #{data.course.title}".gsub(/[_*]/,"") }
-		%meta{ property: "og:site_name", content: "Syllabus for #{data.course.number}" }
-		%meta{ property: "og:type", content: "website" }
-		
-		/ Twitter Card Stuff
-		- if data.course.instructor.has_key? :twitter
-			%meta{ name: "twitter:card", content: "summary" }
-			%meta{ name: "twitter:creator", content: "@oncomouse" }
-			%meta{ name: "twitter:description", :content=> data.course.description }
-			%meta{ name: "twitter:title", content: "#{data.course.number} - #{data.course.title}".gsub(/[_*]/,"") }
-		
-		-# Always force latest IE rendering engine (even in intranet) & Chrome Frame
-		-# Remove this if you use the .htaccess
-		%meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }/
+        <!--<![endif]-->
+        %head
+                %meta{ :charset => "utf-8" }/
+                / Open Graph Stuff
+                %meta{ property: "og:locale", content: "en_US" }
+                %meta{ property: "og:url", content: "#{config[:site_deploy_root]}#{current_page.url}" }
+                %meta{ property: "og:description", :content=> data.course.description }
+                %meta{ property: "og:title", content: "#{data.course.number} - #{data.course.title}".gsub(/[_*]/,"") }
+                %meta{ property: "og:site_name", content: "Syllabus for #{data.course.number}" }
+                %meta{ property: "og:type", content: "website" }
+                
+                / Twitter Card Stuff
+                - if data.course.instructor.has_key? :twitter
+                        %meta{ name: "twitter:card", content: "summary" }
+                        %meta{ name: "twitter:creator", content: "@oncomouse" }
+                        %meta{ name: "twitter:description", :content=> data.course.description }
+                        %meta{ name: "twitter:title", content: "#{data.course.number} - #{data.course.title}".gsub(/[_*]/,"") }
+                
+                -# Always force latest IE rendering engine (even in intranet) & Chrome Frame
+                -# Remove this if you use the .htaccess
+                %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }/
 
-		%title
-			= data.course.number
-			- if current_resource.data['page_link_name'] && !(current_resource.source_file.include? "index.html")
-				= " - #{current_resource.data['page_link_name']}"
+                %title
+                        = data.course.number
+                        - if current_resource.data['page_link_name'] && !(current_resource.source_file.include? "index.html")
+                                = " - #{current_resource.data['page_link_name']}"
 
-		%meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }/
-		= stylesheet_link_tag("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700", "https://fonts.googleapis.com/icon?family=Material+Icons", "https://code.getmdl.io/1.1.3/material.#{data.course.primary_color}-#{data.course.secondary_color}.min.css", (build? ? "https://cdn.jsdelivr.net/gh/oncomouse/oncomouse.github.io@master/stylesheets/mdl-course/app.#{data.course.primary_color}-#{data.course.secondary_color}.css" : "app.#{data.course.primary_color}-#{data.course.secondary_color}"), :media => "all", :rel => "stylesheet")	
-		/ Try to polyfill for older versions of Internet Explorer:
-		<!--[if lte IE 9]>
-		= javascript_include_tag("//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js", "//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js", "//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.min.js", "//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js", "//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js")
-		<![endif]-->
-	%body{ :class => page_classes }
-		.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
-			%header.mdl-layout__header.mdl-layout__header--scroll.mdl-shadow--3dp
-				.mdl-layout__header-row
-					%span.mdl-layout-title.course-title
-						= partial "partials/course-title"
-					.mdl-layout-spacer
-					%nav.mdl-navigation.mdl-layout--large-screen-only
-						= partial "partials/links"
-			.mdl-layout__drawer
-				%span.mdl-layout-title.course-title
-					= partial "partials/course-title"
-				%nav.mdl-navigation
-					= partial "partials/links"
-			%main.mdl-layout__content.mdl-grid
-				.page-content.mdl-cell.mdl-cell--10-col.mdl-cell--12-col-phone
-					.mdl-grid
-						- if current_page.data.page_sidebar_widgets
-							%aside.mdl-cell--4-col.mdl-cell--12-col-phone.mdl-cell--12-col-tablet.page-content__sidebar-widget-container
-								- current_page.data.page_sidebar_widgets.each do |sidebar_widget_name|
-									.mdl-card.mdl-shadow--2dp.page-content__sidebar-widget
-										.mdl-card__supporting-text
-											= partial "partials/sidebar_widgets/#{sidebar_widget_name}", locals: {data: data, current_page: current_page}
-						%article.page-content__main.mdl-cell--12-col-phone.mdl-cell--12-col-tablet{class: "mdl-cell--#{current_page.data.page_sidebar_widgets ? "8" : "10"}-col#{!current_page.data.page_sidebar_widgets ? " mdl-cell--1-offset-desktop" : ""}"}
-							.mdl-card.ie-only.mdl-shadow--2dp{style: "width: 100%; margin-bottom: 30px"}
-								.mdl-card__title
-									%h2.mdl-card__title-text.mdl-color-text--red
-										%i.material-icons warning
-										Outdated Browser Warning!
-								.mdl-card__supporting-text
-									= partial "partials/ie-only"
-							- if current_resource.path == "index.html"
-								.mdl-card{style: "width: 100%"}
-									.md-card__support-text
-										%h1.course-title= partial "partials/course-title"
-									.mdl-card__title
-										%h2.mdl-card__title-text Course Description
-									.mdl-card__supporting-text
-										= partial "partials/course-description"
-				
-							=yield
-			%footer.mdl-mini-footer
-				.mdl-mini-footer__right-section
-					= partial "partials/footer"
-		=javascript_include_tag("https://code.getmdl.io/1.1.3/material.min.js")
+                %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }/
+                = stylesheet_link_tag("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700", "https://fonts.googleapis.com/icon?family=Material+Icons", "https://code.getmdl.io/1.1.3/material.#{data.course.primary_color}-#{data.course.secondary_color}.min.css", (build? ? "https://cdn.jsdelivr.net/gh/oncomouse/oncomouse.github.io@master/stylesheets/mdl-course/app.#{data.course.primary_color}-#{data.course.secondary_color}.css" : "app"), :media => "all", :rel => "stylesheet")	
+                / Try to polyfill for older versions of Internet Explorer:
+                <!--[if lte IE 9]>
+                = javascript_include_tag("//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js", "//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js", "//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.min.js", "//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js", "//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js")
+                <![endif]-->
+        %body{ :class => page_classes }
+                .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+                        %header.mdl-layout__header.mdl-layout__header--scroll.mdl-shadow--3dp
+                                .mdl-layout__header-row
+                                        %span.mdl-layout-title.course-title
+                                                = partial "partials/course-title"
+                                        .mdl-layout-spacer
+                                        %nav.mdl-navigation.mdl-layout--large-screen-only
+                                                = partial "partials/links"
+                        .mdl-layout__drawer
+                                %span.mdl-layout-title.course-title
+                                        = partial "partials/course-title"
+                                %nav.mdl-navigation
+                                        = partial "partials/links"
+                        %main.mdl-layout__content.mdl-grid
+                                .page-content.mdl-cell.mdl-cell--10-col.mdl-cell--12-col-phone
+                                        .mdl-grid
+                                                - if current_page.data.page_sidebar_widgets
+                                                        %aside.mdl-cell--4-col.mdl-cell--12-col-phone.mdl-cell--12-col-tablet.page-content__sidebar-widget-container
+                                                                - current_page.data.page_sidebar_widgets.each do |sidebar_widget_name|
+                                                                        .mdl-card.mdl-shadow--2dp.page-content__sidebar-widget
+                                                                                .mdl-card__supporting-text
+                                                                                        = partial "partials/sidebar_widgets/#{sidebar_widget_name}", locals: {data: data, current_page: current_page}
+                                                %article.page-content__main.mdl-cell--12-col-phone.mdl-cell--12-col-tablet{class: "mdl-cell--#{current_page.data.page_sidebar_widgets ? "8" : "10"}-col#{!current_page.data.page_sidebar_widgets ? " mdl-cell--1-offset-desktop" : ""}"}
+                                                        .mdl-card.ie-only.mdl-shadow--2dp{style: "width: 100%; margin-bottom: 30px"}
+                                                                .mdl-card__title
+                                                                        %h2.mdl-card__title-text.mdl-color-text--red
+                                                                                %i.material-icons warning
+                                                                                Outdated Browser Warning!
+                                                                .mdl-card__supporting-text
+                                                                        = partial "partials/ie-only"
+                                                        - if current_resource.path == "index.html"
+                                                                .mdl-card{style: "width: 100%"}
+                                                                        .md-card__support-text
+                                                                                %h1.course-title= partial "partials/course-title"
+                                                                        .mdl-card__title
+                                                                                %h2.mdl-card__title-text Course Description
+                                                                        .mdl-card__supporting-text
+                                                                                = partial "partials/course-description"
+                                
+                                                        =yield
+                        %footer.mdl-mini-footer
+                                .mdl-mini-footer__right-section
+                                        = partial "partials/footer"
+                =javascript_include_tag("https://code.getmdl.io/1.1.3/material.min.js")
