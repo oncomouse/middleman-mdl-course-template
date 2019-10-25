@@ -43,7 +43,7 @@ def generateScheduleData(schedule)
 		end
 	
 		# Parse through the semester:
-		while today <= schedule['end'] + 1
+		while today <= schedule['end']
 			# Figure out the day content (either a holiday or out of the schedule):
 			if holiday_dates.index(today).is_a? Integer
 				day = "**No Class**\n\n#{if not holiday_names[holiday_dates.index(today)].nil? then '*' +  holiday_names[holiday_dates.index(today)] + '*' end}"
