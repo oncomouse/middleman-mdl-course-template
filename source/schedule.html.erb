@@ -11,7 +11,7 @@ page_link_name: "Schedule"
 <%= partial "partials/schedule-description" %>
 <%
 
-def generateScheduleData(schedule)
+def self.generateScheduleData(schedule)
 	if schedule.has_key? 'classes'
 		today = schedule['start']
 		holiday_dates = schedule['holidays'].map { |x| x['date'] }
